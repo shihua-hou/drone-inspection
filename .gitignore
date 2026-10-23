@@ -1,0 +1,22 @@
+# Colcon / ROS 2 workspace
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Local run artifacts written under $HOME by default, but ignore copies if present
+park_inspection_metrics.json
+park_inspection_map_comparison.json

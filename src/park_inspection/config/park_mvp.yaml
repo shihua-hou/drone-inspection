@@ -1,0 +1,40 @@
+# Shared by inspection_mission and online_mapper. Campus geometry, inspection
+# points, and bounds are generated into campus_obstacles.yaml.
+/**:
+  ros__parameters:
+    grid_resolution: 1.0
+    obstacle_clearance: 2.5
+
+inspection_mission:
+  ros__parameters:
+    minimum_safe_clearance: 1.5
+    acceptance_radius: 1.0
+    enable_online_replanning: false
+    online_map_timeout: 2.5
+    online_replan_timeout: 10.0
+    metrics_file: "~/park_inspection_metrics.json"
+
+online_mapper:
+  ros__parameters:
+    # x500_depth StereoOV7251. Gazebo publishes this cloud in the sensor frame:
+    # +X forward, +Y left, +Z up. Use "optical" if a bridge republishes +Z forward.
+    cloud_topic: "/depth_camera/points"
+    cloud_convention: "x_forward"
+    sensor_position_body: [0.13233, 0.0, 0.26078]
+    max_range: 15.0
+    min_range: 0.4
+    ground_z: 0.4
+    cloud_stride: 16
+    max_points_per_cloud: 2500
+    min_cloud_period: 0.5
+    enable_lidar: false
+    enable_exploration: false
+    lidar_topic: "/lidar/points"
+    lidar_position_body: [0.0, 0.0, 0.09]
+    lidar_stride: 8
+    lidar_max_range: 40.0
+    comparison_period: 10.0
+    map_publish_period: 0.5
+    diagnostics_period: 1.0
+    sensor_timeout: 5.0
+    comparison_file: "~/park_inspection_map_comparison.json"
